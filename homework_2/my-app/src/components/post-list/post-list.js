@@ -2,12 +2,14 @@ import React from 'react';
 
 import PostListItem from '../post-list-item';
 
+import './post-list.css';
+
 const PostList = () => {
     return (
         <ul className="add-list list-group">
-            <PostListItem/>
-            <PostListItem/>
-            <PostListItem/>
+            <PostListItem label='Going to learn react' important />
+            <PostListItem label='That is so good' />
+            <PostListItem label='I need a break...' />
         </ul>
     )
 }
