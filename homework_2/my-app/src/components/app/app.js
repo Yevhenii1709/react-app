@@ -19,6 +19,17 @@ export default class App extends Component {
                 {label: 'I need a break...', important: false, id: 'jnfkef'}
             ]
         }
+        this.deleteItem = this.deleteItem.bind(this);
+    }
+
+    deleteItem(id) {
+        this.setState(({data}) => {
+            const index = data.findIndex(elem => elem.id === id)
+            data.splice(index, 1);
+            return {
+                data: data
+            }
+        });
     }
 
     render () {
