@@ -20,16 +20,23 @@ export default class App extends Component {
             ]
         }
         this.deleteItem = this.deleteItem.bind(this);
+        this.addItem = this.addItem.bind(this)
     }
 
     deleteItem(id) {
         this.setState(({data}) => {
             const index = data.findIndex(elem => elem.id === id)
-            data.splice(index, 1);
+            
+            const newArr = [...data.slice(0, index), ...data.slice(index + 1)];
+
             return {
-                data: data
+                data: newArr
             }
         });
+    }
+
+    addItem(body) {
+        console.log(body);
     }
 
     render () {
@@ -43,7 +50,8 @@ export default class App extends Component {
                 <PostList 
                     posts={this.state.data}
                     onDelete = {id => console.log(id)}/>
-                <PostAddForm/>
+                <PostAddForm
+                  onAdd = {this.addItem}/>
             </div>
         )
     }
