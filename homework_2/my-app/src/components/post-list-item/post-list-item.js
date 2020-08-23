@@ -58,7 +58,12 @@ export default class PostListItem extends Component {
                         onClick={onDelete}>
                         <i className="fa fa-trash-o"></i>
                     </button>
-                    <i className="fa fa-heart"></i>
+                    <button
+                        type="button"
+                        className="btn-heart btn-sm"
+                        onClick={this.onLike}>
+                        <i className="fa fa-heart"></i>
+                    </button>
                 </div>
             </div>
         )
